@@ -83,9 +83,8 @@
 			children = (
 				560F491219C74298008D7BCF /* AppDelegate.h */,
 				560F491319C74298008D7BCF /* AppDelegate.m */,
-				560F491819C74298008D7BCF /* ViewController.h */,
-				560F491919C74298008D7BCF /* ViewController.m */,
 				560F491B19C74298008D7BCF /* Main.storyboard */,
+				560F493419C742A3008D7BCF /* ViewControllers */,
 				560F491E19C74298008D7BCF /* Images.xcassets */,
 				560F491519C74298008D7BCF /* MedsMinder.xcdatamodeld */,
 				560F490E19C74298008D7BCF /* Supporting Files */,
@@ -117,6 +116,15 @@
 				560F492919C74298008D7BCF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		560F493419C742A3008D7BCF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				560F491819C74298008D7BCF /* ViewController.h */,
+				560F491919C74298008D7BCF /* ViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
