@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "MenuViewController.h"
+#import "CenterViewController.h"
+#import "MMDrawerController.h"
+//#import "UIKit/UIkit.h"
 
 @interface AppDelegate ()
             
@@ -20,7 +24,23 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UIStoryboard* mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+//    UINavigationController* navController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NavigationController"];
+    
+    CenterViewController* centerVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+    MenuViewController* menuVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    
+    MMDrawerController* drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:menuVC];
+    [drawerController setMaximumLeftDrawerWidth:180];
+    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeNavigationBarOnly;
+    
+    self.window.rootViewController = drawerController;
+    
+    
     return YES;
 }
 

@@ -1,20 +1,20 @@
 //
-//  ViewController.m
+//  MenuViewController.m
 //  MedsMinder
 //
 //  Created by Charles Northup on 9/15/14.
 //  Copyright (c) 2014 Contract. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MenuViewController.h"
 
-@interface ViewController ()
-            
+@interface MenuViewController ()
+
 
 @end
 
-@implementation ViewController
-            
+@implementation MenuViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.

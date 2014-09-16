@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CenterViewController : UIViewController
+
+-(void)openMenu;
+-(void)closeMenu;
+
 
 
 @end
