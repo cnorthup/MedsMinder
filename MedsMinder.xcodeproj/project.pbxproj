@@ -15,6 +15,7 @@
 		560F491F19C74298008D7BCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560F491E19C74298008D7BCF /* Images.xcassets */; };
 		560F492B19C74298008D7BCF /* MedsMinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F492A19C74298008D7BCF /* MedsMinderTests.m */; };
 		560F493619C74993008D7BCF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F493519C74993008D7BCF /* MenuViewController.m */; };
+		56451C1B19DB0A0F000D80C4 /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 56451C1A19DB0A0F000D80C4 /* Medication.m */; };
 		56BB57B619C75E1C0041CFCF /* MyMMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */; };
 		571576FC7BC44E3DB558840D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 062D9B492AA242A5AF6932A5 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,8 @@
 		560F492A19C74298008D7BCF /* MedsMinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedsMinderTests.m; sourceTree = "<group>"; };
 		560F493519C74993008D7BCF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		560F493719C749B3008D7BCF /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		56451C1A19DB0A0F000D80C4 /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medication.m; sourceTree = "<group>"; };
+		56451C1C19DB0A1E000D80C4 /* Medication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Medication.h; sourceTree = "<group>"; };
 		56BB57B419C75E090041CFCF /* MyMMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMMDrawerController.h; sourceTree = "<group>"; };
 		56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMMDrawerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +109,7 @@
 				560F491B19C74298008D7BCF /* Main.storyboard */,
 				56BB57B419C75E090041CFCF /* MyMMDrawerController.h */,
 				56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */,
+				56451C1919DB09F3000D80C4 /* Meds */,
 				560F493419C742A3008D7BCF /* ViewControllers */,
 				560F491E19C74298008D7BCF /* Images.xcassets */,
 				560F491519C74298008D7BCF /* MedsMinder.xcdatamodeld */,
@@ -149,6 +153,15 @@
 				560F491919C74298008D7BCF /* CenterViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		56451C1919DB09F3000D80C4 /* Meds */ = {
+			isa = PBXGroup;
+			children = (
+				56451C1C19DB0A1E000D80C4 /* Medication.h */,
+				56451C1A19DB0A0F000D80C4 /* Medication.m */,
+			);
+			name = Meds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +304,7 @@
 				560F491119C74298008D7BCF /* main.m in Sources */,
 				56BB57B619C75E1C0041CFCF /* MyMMDrawerController.m in Sources */,
 				560F493619C74993008D7BCF /* MenuViewController.m in Sources */,
+				56451C1B19DB0A0F000D80C4 /* Medication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

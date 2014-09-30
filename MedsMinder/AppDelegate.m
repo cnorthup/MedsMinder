@@ -31,6 +31,7 @@
     
     CenterViewController* centerVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
     MenuViewController* menuVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    menuVC.managedObjectContext = self.managedObjectContext;
     
     MMDrawerController* drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:menuVC];
     [drawerController setMaximumLeftDrawerWidth:180];
