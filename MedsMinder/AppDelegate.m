@@ -37,7 +37,7 @@
     drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeNavigationBarOnly;
-    
+    NSLog(@"%@", drawerController.nibName);
     self.window.rootViewController = drawerController;
     
     

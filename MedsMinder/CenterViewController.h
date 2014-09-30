@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Contract. All rights reserved.
 //
 
+@class CenterViewController;
+
 #import <UIKit/UIKit.h>
 
 @interface CenterViewController : UIViewController
 
--(void)openMenu;
--(void)closeMenu;
-
++(void)rotateMenu:(BOOL)closing;
 
 
 @end

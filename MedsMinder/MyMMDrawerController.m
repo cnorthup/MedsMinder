@@ -26,7 +26,7 @@
     animated = YES;
     UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CenterViewController* centerVC = [storyBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-    [centerVC closeMenu];
+//    [centerVC closeMenu];
     
 }
 -(void)openDrawerSide:(MMDrawerSide)drawerSide animated:(BOOL)animated completion:(void (^)(BOOL))completion
@@ -35,7 +35,7 @@
     animated = YES;
     UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CenterViewController* centerVC = [storyBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-    [centerVC openMenu];
+//    [centerVC openMenu];
 }
 
 @end

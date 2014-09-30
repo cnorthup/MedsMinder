@@ -279,6 +279,8 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
             CGFloat visibleDrawerPoints = CGRectGetMinX(self.centerContainerView.frame);
             percentVisble = MAX(0.0,visibleDrawerPoints/self.maximumLeftDrawerWidth);
             visibleSide = MMDrawerSideLeft;
+//            [_centerViewController rotateMenu:YES];
+
         }
         else if(rightDrawerVisible){
             CGFloat visibleDrawerPoints = CGRectGetWidth(self.centerContainerView.frame)-CGRectGetMaxX(self.centerContainerView.frame);

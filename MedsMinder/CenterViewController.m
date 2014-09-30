@@ -9,7 +9,6 @@
 #import "CenterViewController.h"
 #import "MMDrawerBarButtonItem.h"
 #import "MMDrawerController.h"
-#import "MMDrawerController+Subclass.h"
 
 @interface CenterViewController ()
             
@@ -37,6 +36,21 @@
     }];
 }
 
++(void)rotateMenu:(BOOL)closing
+{
+    if (closing)
+    {
+        UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        CenterViewController* c = (CenterViewController*)[storyBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+        [c openMenu];
+    }
+    else
+    {
+        UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        CenterViewController* c = (CenterViewController*)[storyBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+        [c openMenu];
+    }
+}
 
 -(void)openMenu
 {
@@ -51,7 +65,7 @@
 -(void)closeMenu
 {
     [UIView animateWithDuration:0.25 animations:^{
-        CGAffineTransform cgaRotateHr = CGAffineTransformMakeRotation(0);
+        CGAffineTransform cgaRotateHr = CGAffineTransformMakeRotation(-(3.141/2));
         [self.myMenuButton setTransform:cgaRotateHr];
     } completion:^(BOOL finished) {
         
