@@ -12,8 +12,6 @@
 
 @interface CenterViewController : UIViewController
 
-+(void)rotateMenu:(BOOL)closing;
-
 
 @end
 

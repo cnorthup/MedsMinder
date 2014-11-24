@@ -39,7 +39,7 @@
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeNavigationBarOnly;
     NSLog(@"%@", drawerController.nibName);
-    self.window.rootViewController = drawerController;
+    //self.window.rootViewController = centerVC;
     
     
     return YES;
