@@ -6,12 +6,14 @@
 //  Copyright (c) 2014 Contract. All rights reserved.
 //
 
-@class CenterViewController;
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface CenterViewController : UIViewController
+@interface CenterViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 
