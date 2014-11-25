@@ -30,16 +30,16 @@
 //    UINavigationController* navController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NavigationController"];
     
     CenterViewController* centerVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
-    MenuViewController* menuVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-    menuVC.managedObjectContext = self.managedObjectContext;
-    
-    MMDrawerController* drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:menuVC];
-    [drawerController setMaximumLeftDrawerWidth:180];
-    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
-    drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeNavigationBarOnly;
-    NSLog(@"%@", drawerController.nibName);
-    //self.window.rootViewController = centerVC;
+    //MenuViewController* menuVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    centerVC.managedObjectContext = self.managedObjectContext;
+//    
+//    MMDrawerController* drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:menuVC];
+//    [drawerController setMaximumLeftDrawerWidth:180];
+//    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+//    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+//    drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeNavigationBarOnly;
+//    NSLog(@"%@", drawerController.nibName);
+    self.window.rootViewController = centerVC;
     
     
     return YES;

@@ -12,6 +12,8 @@
 #import "MMDrawerBarButtonItem.h"
 #import "MMDrawerController.h"
 #import "MedicationHeaderView.h"
+#import "Medication.h"
+#import "MedCustomCell.h"
 
 @interface CenterViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
             
@@ -34,7 +36,7 @@
 
 @implementation CenterViewController
             
-- (void)viewDidLoad {
+-(void)viewDidLoad{
     [super viewDidLoad];
     self.orginalTablview = self.myTableView.frame;
     self.medsOpen = NO;
@@ -43,8 +45,12 @@
     self.supsArray = [NSMutableArray arrayWithArray:@[@"bird", @"turtle", @"shark"]];
     self.supsColor = self.supsColorView.backgroundColor;
     self.medsColor = self.medsColorView.backgroundColor;
-    self.myTableView.dataSource = self;
-    self.myTableView.delegate = self;
+    NSFetchRequest* request = [[NSFetchRequest alloc]initWithEntityName:@"Medication"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type" cacheName:@"rogueNotion"];
+    
+    self.fetchedResultsController.delegate = self;
+    [self.fetchedResultsController performFetch:nil];
     
 }
 
@@ -60,40 +66,38 @@
     [self.myTableView endUpdates];
 }
 
-//-(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type{
-//    
-//    if (type == NSFetchedResultsChangeInsert) {
-//        [self.myTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }
-//}
+-(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type{
+    
+    if (type == NSFetchedResultsChangeInsert) {
+        [self.myTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
 
 
-//-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
-//    
-//    if (type == NSFetchedResultsChangeInsert) {
-//        [self.myTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    } else if (type == NSFetchedResultsChangeUpdate) {
-//        [self.myTableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }
-//}
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath{
+    
+    if (type == NSFetchedResultsChangeInsert) {
+        [self.myTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else if (type == NSFetchedResultsChangeUpdate) {
+        [self.myTableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MedCustomCell* cell = (MedCustomCell*)[tableView dequeueReusableCellWithIdentifier:@"DetailCellID"];
+    CGRect screen = [[UIScreen mainScreen]bounds];
+
     if (indexPath.section == 0) {
-            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCellID"];
-            cell.textLabel.text = [self.medsArray objectAtIndex:indexPath.row];
             cell.backgroundColor = self.medsColor;
-            return cell;
 
     }
     else{
-
-            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCellID"];
-            cell.textLabel.text = [self.supsArray objectAtIndex:indexPath.row];
             cell.backgroundColor = self.supsColor;
-            return cell;
     }
+    return cell;
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -126,7 +130,7 @@
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
-                [self toggleMedsList];
+                //[self toggleMedsList];
                 [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
             }
@@ -136,7 +140,7 @@
             break;
         case 1:
             if (indexPath.row == 0) {
-                [self toggleSupsList];
+               // [self toggleSupsList];
                 [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
             }
@@ -192,13 +196,13 @@
         case 0:
             title.text = @"Medication";
             [self.headerView addGestureRecognizer:medTapGesture];
-            self.headerView.backgroundColor = self.medsColor;
+            self.headerView.backgroundColor = self.supsColor;
             break;
             
         default:
             title.text = @"Supliments";
             [self.headerView addGestureRecognizer:supTapGesture];
-            self.headerView.backgroundColor = self.supsColor;
+            self.headerView.backgroundColor = self.medsColor;
             break;
     }
     return self.headerView;

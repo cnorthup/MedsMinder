@@ -18,6 +18,7 @@
 		56BA47491A24E84100206580 /* MedicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BA47481A24E84100206580 /* MedicationView.xib */; };
 		56BA474B1A24EBB300206580 /* MedicationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA474A1A24EBB300206580 /* MedicationHeaderView.m */; };
 		56BA474D1A24EC5F00206580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA474C1A24EC5F00206580 /* main.m */; };
+		56BA47511A2515F800206580 /* MedCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA47501A2515F700206580 /* MedCustomCell.m */; };
 		56BB57B619C75E1C0041CFCF /* MyMMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */; };
 		571576FC7BC44E3DB558840D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 062D9B492AA242A5AF6932A5 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,8 @@
 		56BA474A1A24EBB300206580 /* MedicationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationHeaderView.m; sourceTree = "<group>"; };
 		56BA474C1A24EC5F00206580 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../.Trash/main.m; sourceTree = "<group>"; };
 		56BA474E1A24EC8000206580 /* MedicationHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicationHeaderView.h; sourceTree = "<group>"; };
+		56BA47501A2515F700206580 /* MedCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedCustomCell.m; sourceTree = "<group>"; };
+		56BA47521A25160500206580 /* MedCustomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedCustomCell.h; sourceTree = "<group>"; };
 		56BB57B419C75E090041CFCF /* MyMMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMMDrawerController.h; sourceTree = "<group>"; };
 		56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMMDrawerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +112,7 @@
 		560F490D19C74298008D7BCF /* MedsMinder */ = {
 			isa = PBXGroup;
 			children = (
+				56BA474F1A2515AB00206580 /* TableViewCells */,
 				560F491219C74298008D7BCF /* AppDelegate.h */,
 				560F491319C74298008D7BCF /* AppDelegate.m */,
 				560F491B19C74298008D7BCF /* Main.storyboard */,
@@ -170,6 +174,15 @@
 				56451C1A19DB0A0F000D80C4 /* Medication.m */,
 			);
 			name = Meds;
+			sourceTree = "<group>";
+		};
+		56BA474F1A2515AB00206580 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				56BA47521A25160500206580 /* MedCustomCell.h */,
+				56BA47501A2515F700206580 /* MedCustomCell.m */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +322,7 @@
 			files = (
 				560F491719C74298008D7BCF /* MedsMinder.xcdatamodeld in Sources */,
 				560F491419C74298008D7BCF /* AppDelegate.m in Sources */,
+				56BA47511A2515F800206580 /* MedCustomCell.m in Sources */,
 				56BA474B1A24EBB300206580 /* MedicationHeaderView.m in Sources */,
 				560F491A19C74298008D7BCF /* CenterViewController.m in Sources */,
 				56BB57B619C75E1C0041CFCF /* MyMMDrawerController.m in Sources */,

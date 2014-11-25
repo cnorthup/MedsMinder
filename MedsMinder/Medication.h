@@ -13,7 +13,7 @@
 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* frequency;
-@property (nonatomic, retain) NSDate* lastTaken;
+@property (nonatomic, retain) NSDate* lastRefill;
 @property (nonatomic, retain) NSString* type;
 @property (nonatomic, retain) NSString* dosage;
 @property (nonatomic, retain) id barcode;
@@ -24,7 +24,7 @@
 
 -(void)setName:(NSString *)name;
 -(void)setFrequency:(NSString *)frequency;
--(void)setLastTaken:(NSDate *)lastTaken;
+-(void)setLastTaken:(NSDate *)lastRefill;
 -(void)setType:(NSString *)type;
 -(void)setDosage:(NSString *)dosage;
 -(void)setBarcode:(id)barcode;

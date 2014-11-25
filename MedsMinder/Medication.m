@@ -13,7 +13,7 @@
 
 @dynamic name;
 @dynamic frequency;
-@dynamic lastTaken;
+@dynamic lastRefill;
 @dynamic type;
 @dynamic dosage;
 @dynamic barcode;
