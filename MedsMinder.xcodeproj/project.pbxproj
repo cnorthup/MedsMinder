@@ -14,6 +14,7 @@
 		560F491F19C74298008D7BCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560F491E19C74298008D7BCF /* Images.xcassets */; };
 		560F492B19C74298008D7BCF /* MedsMinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F492A19C74298008D7BCF /* MedsMinderTests.m */; };
 		560F493619C74993008D7BCF /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 560F493519C74993008D7BCF /* MenuViewController.m */; };
+		561B6F041A2F9405007AB9C5 /* NewPillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 561B6F031A2F9405007AB9C5 /* NewPillViewController.m */; };
 		56451C1B19DB0A0F000D80C4 /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 56451C1A19DB0A0F000D80C4 /* Medication.m */; };
 		56BA47491A24E84100206580 /* MedicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BA47481A24E84100206580 /* MedicationView.xib */; };
 		56BA474B1A24EBB300206580 /* MedicationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA474A1A24EBB300206580 /* MedicationHeaderView.m */; };
@@ -50,6 +51,8 @@
 		560F492A19C74298008D7BCF /* MedsMinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedsMinderTests.m; sourceTree = "<group>"; };
 		560F493519C74993008D7BCF /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		560F493719C749B3008D7BCF /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		561B6F021A2F93EF007AB9C5 /* NewPillViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewPillViewController.h; sourceTree = "<group>"; };
+		561B6F031A2F9405007AB9C5 /* NewPillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPillViewController.m; sourceTree = "<group>"; };
 		56451C1A19DB0A0F000D80C4 /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medication.m; sourceTree = "<group>"; };
 		56451C1C19DB0A1E000D80C4 /* Medication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Medication.h; sourceTree = "<group>"; };
 		56BA47481A24E84100206580 /* MedicationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicationView.xib; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				560F493519C74993008D7BCF /* MenuViewController.m */,
 				560F491819C74298008D7BCF /* CenterViewController.h */,
 				560F491919C74298008D7BCF /* CenterViewController.m */,
+				561B6F021A2F93EF007AB9C5 /* NewPillViewController.h */,
+				561B6F031A2F9405007AB9C5 /* NewPillViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 			files = (
 				560F491719C74298008D7BCF /* MedsMinder.xcdatamodeld in Sources */,
 				560F491419C74298008D7BCF /* AppDelegate.m in Sources */,
+				561B6F041A2F9405007AB9C5 /* NewPillViewController.m in Sources */,
 				56BA47511A2515F800206580 /* MedCustomCell.m in Sources */,
 				56BA474B1A24EBB300206580 /* MedicationHeaderView.m in Sources */,
 				560F491A19C74298008D7BCF /* CenterViewController.m in Sources */,

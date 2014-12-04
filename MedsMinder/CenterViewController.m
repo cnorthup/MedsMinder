@@ -14,6 +14,7 @@
 #import "MedicationHeaderView.h"
 #import "Medication.h"
 #import "MedCustomCell.h"
+#import "NewPillViewController.h"
 
 @interface CenterViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
             
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIView *supsColorView;
 @property (strong, nonatomic) UIView* headerView;
 @property (nonatomic) CGRect orginalTablview;
+@property (strong, nonatomic) NSIndexPath* selectedCell;
 
 
 
@@ -87,127 +89,119 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MedCustomCell* cell = (MedCustomCell*)[tableView dequeueReusableCellWithIdentifier:@"DetailCellID"];
-    CGRect screen = [[UIScreen mainScreen]bounds];
-
-    if (indexPath.section == 0) {
-            cell.backgroundColor = self.medsColor;
-
+    Medication* meds = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.medNameLabel.text = meds.name;
+    cell.dosageLabel.text = [NSString stringWithFormat:@"%@ mg", meds.dosage];
+    if (indexPath == self.selectedCell) {
+        cell = [cell openCell:cell];
     }
-    else{
-            cell.backgroundColor = self.supsColor;
+    else
+    {
+        cell = [cell closeCell:cell];
     }
+    //CGRect screen = [[UIScreen mainScreen]bounds];
+
+//    if (indexPath.section == 0) {
+//            cell.backgroundColor = self.medsColor;
+//    }
+//    else{
+//            cell.backgroundColor = self.supsColor;
+//    }
     return cell;
 
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (section) {
-        case 0:
-            if (self.medsOpen == YES) {
-                return self.medsArray.count;
+    return [[self.fetchedResultsController.sections objectAtIndex:section] numberOfObjects];
 
-            }
-            else{
-                return 0;
-            }
-            break;
-
-        default:
-            if (self.supsOpen == YES) {
-                return self.supsArray.count;
-                
-            }
-            else{
-                return 0;
-            }
-            break;
-    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
-        case 0:
-            if (indexPath.row == 0) {
-                //[self toggleMedsList];
-                [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.selectedCell != nil) {
+        if (self.selectedCell == indexPath) {
+            self.selectedCell = nil;
+            [self.myTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
-            }
-            else{
-                
-            }
-            break;
-        case 1:
-            if (indexPath.row == 0) {
-               // [self toggleSupsList];
-                [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-            }
-            else{
-                
-            }
-        default:
-            break;
+        }
+        else{
+            NSIndexPath* oldCell = self.selectedCell;
+            self.selectedCell = indexPath;
+            [self.myTableView reloadRowsAtIndexPaths:@[indexPath, oldCell] withRowAnimation:UITableViewRowAnimationFade];
+        }
     }
+    else
+    {
+        self.selectedCell = indexPath;
+        [self.myTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        //UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (indexPath == self.selectedCell) {
+            return 118;
+        }
+        else
+        {
+            return 44;
+        }
+
+
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.fetchedResultsController.sections.count;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    switch (section) {
-        case 0:
-            return @"Medication";
-            break;
-            
-        default:
-            return @"Supliments";
-            break;
-    }
+    return [[self.fetchedResultsController.sections objectAtIndex:section] name];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 50;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 50;
+//}
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    CGRect frame = tableView.frame;
-    
-    UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width-60, 10, 50, 30)];
-    addButton.backgroundColor = [UIColor redColor];
-    
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 30)];
-    
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-    UITapGestureRecognizer *medTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleMedsList)];
-    medTapGesture.cancelsTouchesInView = YES;
-    UITapGestureRecognizer *supTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSupsList)];
-    supTapGesture.cancelsTouchesInView = YES;
-    [self.headerView addSubview:title];
-    [self.headerView addSubview:addButton];
-    
-    switch (section) {
-        case 0:
-            title.text = @"Medication";
-            [self.headerView addGestureRecognizer:medTapGesture];
-            self.headerView.backgroundColor = self.supsColor;
-            break;
-            
-        default:
-            title.text = @"Supliments";
-            [self.headerView addGestureRecognizer:supTapGesture];
-            self.headerView.backgroundColor = self.medsColor;
-            break;
-    }
-    return self.headerView;
-
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    CGRect frame = tableView.frame;
+//    
+//    UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width-60, 10, 50, 30)];
+//    addButton.backgroundColor = [UIColor redColor];
+//    
+//    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 30)];
+//    
+//    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+//    UITapGestureRecognizer *medTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleMedsList)];
+//    medTapGesture.cancelsTouchesInView = YES;
+//    UITapGestureRecognizer *supTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleSupsList)];
+//    supTapGesture.cancelsTouchesInView = YES;
+//    [self.headerView addSubview:title];
+//    [self.headerView addSubview:addButton];
+//    
+//    switch (section) {
+//        case 0:
+//            title.text = @"Medication";
+//            [self.headerView addGestureRecognizer:medTapGesture];
+//            self.headerView.backgroundColor = self.supsColor;
+//            break;
+//            
+//        default:
+//            title.text = @"Supliments";
+//            [self.headerView addGestureRecognizer:supTapGesture];
+//            self.headerView.backgroundColor = self.medsColor;
+//            break;
+//    }
+//    return self.headerView;
+//
+//}
 
 
 -(void)toggleMedsList
@@ -251,6 +245,51 @@
     
     return view;
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NewPillViewController* vc = segue.destinationViewController;
+    vc.managedObjectContext = self.managedObjectContext;
+    //vc.meds = sender;
+}
+
+-(IBAction)addPillButton:(id)sender
+{
+    //Medication* newMeds = [NSEntityDescription insertNewObjectForEntityForName:@"Medication" inManagedObjectContext:self.managedObjectContext];
+    [self performSegueWithIdentifier:@"AddPillSegue" sender:self];
+}
+
+-(IBAction)confirmPill:(UIStoryboardSegue*)sender
+{
+    NewPillViewController* newPill = sender.sourceViewController;
+    Medication* newMeds = newPill.meds;
+    [self.managedObjectContext save:nil];
+//    if (newPill.medication == YES) {
+//        Medication* newMeds = newPill.meds;
+//        [self.managedObjectContext save:nil];
+//    }
+//    else
+//    {
+//        Suppliments* newSups == newPill.sups;
+//        [self.managedObjectContext save:nil];
+//    }
+    
+}
+
+-(IBAction)cancelPill:(UIStoryboardSegue*)sender
+{
+//    NewPillViewController* canceledPill = sender.sourceViewController;
+//    
+//    if (canceledPill.medication == YES) {
+//        Medication* newMeds = canceledPill.meds;
+//        [self.managedObjectContext deleteObject:newMeds];
+//    }
+//    else
+//    {
+//        Suppliments* newSups == canceledPill.sups;
+//        [self.managedObjectContext deleteObject:newSups];
+//    }
 }
 
 //-(CGRect)compressTableView:(BOOL)meds sups:(BOOL)sups

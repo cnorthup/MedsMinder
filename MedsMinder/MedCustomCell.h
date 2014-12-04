@@ -17,4 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *frequencyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *quanityLabel;
 
+
+-(MedCustomCell*)openCell:(MedCustomCell*)cell;
+-(MedCustomCell*)closeCell:(MedCustomCell*)cell;
+
+
 @end

@@ -10,6 +10,7 @@
 #import "MenuViewController.h"
 #import "CenterViewController.h"
 #import "MMDrawerController.h"
+#import "NewPillViewController.h"
 //#import "UIKit/UIkit.h"
 
 @interface AppDelegate ()
@@ -30,8 +31,10 @@
 //    UINavigationController* navController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NavigationController"];
     
     CenterViewController* centerVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
+    NewPillViewController* newPillVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NewPillViewController"];
     //MenuViewController* menuVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     centerVC.managedObjectContext = self.managedObjectContext;
+    newPillVC.managedObjectContext = self.managedObjectContext;
 //    
 //    MMDrawerController* drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:menuVC];
 //    [drawerController setMaximumLeftDrawerWidth:180];
