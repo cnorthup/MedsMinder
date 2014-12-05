@@ -12,6 +12,8 @@
 @interface NewPillViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dosageTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *switchButton;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @end
 
@@ -20,6 +22,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.typeLabel.text = @"Medication";
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -41,6 +44,15 @@
 {
     return YES;
 }
+- (IBAction)switchButtonPressed:(UISwitch*)sender
+{
+    if (sender.on) {
+        self.typeLabel.text = @"Medication";
+    }
+    else{
+        self.typeLabel.text = @"Suppliments";
+    }
+}
 
 - (IBAction)addPillButtonPressed:(id)sender
 {
@@ -49,7 +61,13 @@
         Medication* newMeds = [NSEntityDescription insertNewObjectForEntityForName:@"Medication" inManagedObjectContext:self.managedObjectContext];
         newMeds.name = self.nameTextField.text;
         newMeds.dosage = self.dosageTextField.text;
-        newMeds.type = @"Medication";
+        if (self.switchButton.on) {
+            newMeds.type = @"Medication";
+        }
+        else
+        {
+            newMeds.type = @"Suppliments";
+        }
         self.meds = newMeds;
         [self performSegueWithIdentifier:@"ComfirmPillSegue" sender:self];
     }

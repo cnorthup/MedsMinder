@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastRFTitle;
 @property (weak, nonatomic) IBOutlet UILabel *frequencyTitle;
 @property (weak, nonatomic) IBOutlet UILabel *quanityTitle;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 
 @end
@@ -41,6 +42,7 @@
     cell.lastRFTitle.hidden = NO;
     cell.quanityTitle.hidden = NO;
     cell.frequencyTitle.hidden = NO;
+    cell.editButton.hidden = NO;
     return cell;
 }
 
@@ -53,6 +55,7 @@
     cell.lastRFTitle.hidden = YES;
     cell.quanityTitle.hidden = YES;
     cell.frequencyTitle.hidden = YES;
+    cell.editButton.hidden = YES;
     return cell;
 }
 

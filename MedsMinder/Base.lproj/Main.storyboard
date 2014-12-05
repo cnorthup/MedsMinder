@@ -131,12 +131,16 @@
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="editButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Add-VA-6X7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="dosageLabel" destination="HuS-SY-jPi" id="dG2-MK-iWl"/>
+                                            <outlet property="editButton" destination="g7T-eF-xah" id="wlV-JE-swZ"/>
                                             <outlet property="frequencyLabel" destination="cVB-yD-Gdv" id="96a-bV-LUM"/>
                                             <outlet property="frequencyTitle" destination="lhl-M7-a4Y" id="5QL-Sz-ZOv"/>
                                             <outlet property="lastRFTitle" destination="fuP-zr-ppL" id="h33-jW-Eyq"/>
@@ -240,6 +244,18 @@
                                     <action selector="addPillButtonPressed:" destination="OHz-b6-fEg" eventType="touchUpInside" id="hjf-0T-HH0"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftO-2S-lIc">
+                                <rect key="frame" x="112" y="33" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchButtonPressed:" destination="OHz-b6-fEg" eventType="valueChanged" id="EJL-E6-JRx"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnj-au-QRg">
+                                <rect key="frame" x="180" y="38" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -247,6 +263,8 @@
                     <connections>
                         <outlet property="dosageTextField" destination="p5I-Ie-HQO" id="0dM-qy-jxz"/>
                         <outlet property="nameTextField" destination="5xl-XS-yqk" id="hng-ab-MSd"/>
+                        <outlet property="switchButton" destination="ftO-2S-lIc" id="zqS-jq-iKg"/>
+                        <outlet property="typeLabel" destination="nnj-au-QRg" id="eWC-hB-IVx"/>
                         <segue destination="mue-5W-oBU" kind="unwind" identifier="ComfirmPillSegue" unwindAction="confirmPill:" id="ess-Jb-Pgx"/>
                     </connections>
                 </viewController>

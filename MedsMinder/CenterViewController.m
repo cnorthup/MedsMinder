@@ -16,7 +16,7 @@
 #import "MedCustomCell.h"
 #import "NewPillViewController.h"
 
-@interface CenterViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface CenterViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate>
             
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UIButton *myMenuButton;
@@ -102,12 +102,12 @@
     }
     //CGRect screen = [[UIScreen mainScreen]bounds];
 
-//    if (indexPath.section == 0) {
-//            cell.backgroundColor = self.medsColor;
-//    }
-//    else{
-//            cell.backgroundColor = self.supsColor;
-//    }
+    if ([meds.type isEqualToString:@"Medication"]) {
+        cell.backgroundColor = self.medsColor;
+    }
+    else{
+            cell.backgroundColor = self.supsColor;
+    }
     return cell;
 
 }
@@ -162,6 +162,31 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [[self.fetchedResultsController.sections objectAtIndex:section] name];
+}
+
+- (IBAction)editButtonPressed:(id)sender
+{
+    UIAlertView* deleteView = [[UIAlertView alloc] initWithTitle:@"Delete" message:@"Are you sure you want to delete this?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+    [deleteView show];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.title isEqualToString:@"Delete"]) {
+        switch (buttonIndex) {
+            case 0:
+                NSLog(@"Cancel");
+                break;
+                
+            default:
+                //Medication* med = [Medication new];
+                NSLog(@"%@", [self.fetchedResultsController objectAtIndexPath:self.selectedCell]);
+                [self.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:self.selectedCell]];
+                [self.managedObjectContext save:nil];
+                //[];
+                break;
+        }
+    }
 }
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
