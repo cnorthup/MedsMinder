@@ -29,12 +29,13 @@
     UIStoryboard* mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
 //    UINavigationController* navController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NavigationController"];
-    
+    UINavigationController* navController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NavigationController"];
     CenterViewController* centerVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"CenterViewController"];
     NewPillViewController* newPillVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"NewPillViewController"];
     //MenuViewController* menuVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     centerVC.managedObjectContext = self.managedObjectContext;
     newPillVC.managedObjectContext = self.managedObjectContext;
+    [navController addChildViewController:centerVC];
 //    
 //    MMDrawerController* drawerController = [[MMDrawerController alloc]initWithCenterViewController:centerVC leftDrawerViewController:menuVC];
 //    [drawerController setMaximumLeftDrawerWidth:180];
@@ -42,7 +43,7 @@
 //    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
 //    drawerController.centerHiddenInteractionMode = MMDrawerOpenCenterInteractionModeNavigationBarOnly;
 //    NSLog(@"%@", drawerController.nibName);
-    self.window.rootViewController = centerVC;
+    self.window.rootViewController = navController;
     
     
     return YES;

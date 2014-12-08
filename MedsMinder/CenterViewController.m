@@ -73,6 +73,9 @@
     if (type == NSFetchedResultsChangeInsert) {
         [self.myTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+    else if (type == NSFetchedResultsChangeDelete){
+        [self.myTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 
@@ -82,6 +85,9 @@
         [self.myTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (type == NSFetchedResultsChangeUpdate) {
         [self.myTableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    else if (type == NSFetchedResultsChangeDelete){
+        [self.myTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
@@ -172,6 +178,8 @@
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    NSError* error = [NSError errorWithDomain:@"Error" code:98 userInfo:nil];
+
     if ([alertView.title isEqualToString:@"Delete"]) {
         switch (buttonIndex) {
             case 0:
@@ -182,7 +190,8 @@
                 //Medication* med = [Medication new];
                 NSLog(@"%@", [self.fetchedResultsController objectAtIndexPath:self.selectedCell]);
                 [self.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:self.selectedCell]];
-                [self.managedObjectContext save:nil];
+                self.selectedCell = nil;
+                [self.managedObjectContext save:&error];
                 //[];
                 break;
         }

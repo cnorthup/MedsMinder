@@ -23,6 +23,8 @@
 {
     [super viewDidLoad];
     self.typeLabel.text = @"Medication";
+    self.nameTextField.enabled = YES;
+    self.dosageTextField.enabled = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -33,11 +35,6 @@
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     NSLog(@"typed %@", textField.text);
-}
-
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    return YES;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
