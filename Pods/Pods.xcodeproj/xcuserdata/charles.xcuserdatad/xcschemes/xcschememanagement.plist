@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MTBBarcodeScanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>269DE2DCDBE74CEE84D891CA</key>
+		<key>06916A2B00A75DE3872E3A2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69EAE1F730704C8BAC7BEA24</key>
+		<key>15B75EB8AF49F33A67532BF4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F98E1EA3F469A1DE1510515</key>
 		<dict>
 			<key>primary</key>
 			<true/>

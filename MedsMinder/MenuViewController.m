@@ -12,6 +12,7 @@
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
 
+
 @end
 
 @implementation MenuViewController
@@ -22,10 +23,13 @@
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
     self.fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type" cacheName:@"rogueNotion"];
     
+    
     self.fetchedResultsController.delegate = self;
     [self.fetchedResultsController performFetch:nil];
     
 }
+
+
 
 #pragma mark-- TableView
 

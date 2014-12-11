@@ -9,6 +9,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MTBBarcodeScanner.h"
 
 @interface CenterViewController : UIViewController <NSFetchedResultsControllerDelegate>
 

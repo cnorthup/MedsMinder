@@ -36,3 +36,9 @@
 #define COCOAPODS_VERSION_MINOR_MMDrawerController_Subclass 5
 #define COCOAPODS_VERSION_PATCH_MMDrawerController_Subclass 7
 
+// MTBBarcodeScanner
+#define COCOAPODS_POD_AVAILABLE_MTBBarcodeScanner
+#define COCOAPODS_VERSION_MAJOR_MTBBarcodeScanner 1
+#define COCOAPODS_VERSION_MINOR_MTBBarcodeScanner 2
+#define COCOAPODS_VERSION_PATCH_MTBBarcodeScanner 0
+
