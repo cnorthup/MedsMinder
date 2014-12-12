@@ -19,9 +19,9 @@
 		56AF9CA11A3A144100B22F8A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AF9CA01A3A144100B22F8A /* AVFoundation.framework */; };
 		56BA47491A24E84100206580 /* MedicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BA47481A24E84100206580 /* MedicationView.xib */; };
 		56BA474B1A24EBB300206580 /* MedicationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA474A1A24EBB300206580 /* MedicationHeaderView.m */; };
-		56BA474D1A24EC5F00206580 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA474C1A24EC5F00206580 /* main.m */; };
 		56BA47511A2515F800206580 /* MedCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA47501A2515F700206580 /* MedCustomCell.m */; };
 		56BB57B619C75E1C0041CFCF /* MyMMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */; };
+		56D68A021A3B94A70095E244 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D68A011A3B94A70095E244 /* main.m */; };
 		571576FC7BC44E3DB558840D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 062D9B492AA242A5AF6932A5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,12 +59,12 @@
 		56AF9CA01A3A144100B22F8A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		56BA47481A24E84100206580 /* MedicationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicationView.xib; sourceTree = "<group>"; };
 		56BA474A1A24EBB300206580 /* MedicationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationHeaderView.m; sourceTree = "<group>"; };
-		56BA474C1A24EC5F00206580 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../.Trash/main.m; sourceTree = "<group>"; };
 		56BA474E1A24EC8000206580 /* MedicationHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedicationHeaderView.h; sourceTree = "<group>"; };
 		56BA47501A2515F700206580 /* MedCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedCustomCell.m; sourceTree = "<group>"; };
 		56BA47521A25160500206580 /* MedCustomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MedCustomCell.h; sourceTree = "<group>"; };
 		56BB57B419C75E090041CFCF /* MyMMDrawerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMMDrawerController.h; sourceTree = "<group>"; };
 		56BB57B519C75E1C0041CFCF /* MyMMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMMDrawerController.m; sourceTree = "<group>"; };
+		56D68A011A3B94A70095E244 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "../../../Downloads/MedsMinder-master/MedsMinder/main.m"; sourceTree = "<group>"; };
 		79F102076E38E70A9CCCAD9A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				560F490F19C74298008D7BCF /* Info.plist */,
-				56BA474C1A24EC5F00206580 /* main.m */,
+				56D68A011A3B94A70095E244 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				560F491A19C74298008D7BCF /* CenterViewController.m in Sources */,
 				56BB57B619C75E1C0041CFCF /* MyMMDrawerController.m in Sources */,
 				560F493619C74993008D7BCF /* MenuViewController.m in Sources */,
-				56BA474D1A24EC5F00206580 /* main.m in Sources */,
+				56D68A021A3B94A70095E244 /* main.m in Sources */,
 				56451C1B19DB0A0F000D80C4 /* Medication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
