@@ -34,7 +34,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQ2-bT-LDx">
-                                <rect key="frame" x="166" y="76" width="22" height="22"/>
+                                <rect key="frame" x="239" y="89" width="22" height="22"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -153,6 +153,15 @@
                                     <action selector="menuButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hHS-b0-urG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEK-7e-K7K">
+                                <rect key="frame" x="102" y="106" width="58" height="30"/>
+                                <state key="normal" title="add Box">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBoxButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kXB-b2-bJj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.50217481019999999" blue="0.0020682545409999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -232,8 +241,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DR-7Z-xyF">
-                                <rect key="frame" x="16" y="224" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="16" y="224" width="59" height="30"/>
+                                <state key="normal" title="Comfirm">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -253,7 +262,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2H-V8-rWn">
-                                <rect key="frame" x="219" y="204" width="35" height="30"/>
+                                <rect key="frame" x="269" y="224" width="35" height="30"/>
                                 <state key="normal" title="Scan">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -261,11 +270,19 @@
                                     <action selector="scanBarcodeButtonPressed:" destination="OHz-b6-fEg" eventType="touchUpInside" id="QHi-zn-W8h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-jS-5CO">
+                                <rect key="frame" x="190" y="171" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="YNB-W4-RgF"/>
                     <connections>
+                        <outlet property="barcodeTextLabel" destination="ASE-jS-5CO" id="kcF-zm-NZG"/>
+                        <outlet property="comfirmButton" destination="6DR-7Z-xyF" id="7zA-Dx-Pny"/>
                         <outlet property="dosageTextField" destination="p5I-Ie-HQO" id="0dM-qy-jxz"/>
                         <outlet property="nameTextField" destination="5xl-XS-yqk" id="hng-ab-MSd"/>
                         <outlet property="switchButton" destination="ftO-2S-lIc" id="zqS-jq-iKg"/>

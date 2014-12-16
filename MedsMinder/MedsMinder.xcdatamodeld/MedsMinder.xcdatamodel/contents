@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14C68m" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Medication" syncable="YES">
+    <entity name="Boxes" parentEntity="Item" syncable="YES">
+        <relationship name="medications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medication" inverseName="box" inverseEntity="Medication" syncable="YES"/>
+    </entity>
+    <entity name="Item" isAbstract="YES" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Medication" parentEntity="Item" syncable="YES">
         <attribute name="barcode" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="dosage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="frequency" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastRefill" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="box" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Boxes" inverseName="medications" inverseEntity="Boxes" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Medication" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Medication" positionX="-54" positionY="68" width="128" height="118"/>
+        <element name="Boxes" positionX="-335" positionY="126" width="128" height="58"/>
+        <element name="Item" positionX="-216" positionY="-157" width="128" height="73"/>
     </elements>
 </model>

@@ -47,8 +47,10 @@
     self.supsArray = [NSMutableArray arrayWithArray:@[@"bird", @"turtle", @"shark"]];
     self.supsColor = self.supsColorView.backgroundColor;
     self.medsColor = self.medsColorView.backgroundColor;
-    NSFetchRequest* request = [[NSFetchRequest alloc]initWithEntityName:@"Medication"];
+    NSFetchRequest* request = [[NSFetchRequest alloc]initWithEntityName:@"Item"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
+    //request.sortDescriptors = nil;
+    request.includesSubentities = YES;
     self.fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type" cacheName:@"rogueNotion"];
     
     self.fetchedResultsController.delegate = self;
@@ -293,6 +295,10 @@
 {
     //Medication* newMeds = [NSEntityDescription insertNewObjectForEntityForName:@"Medication" inManagedObjectContext:self.managedObjectContext];
     [self performSegueWithIdentifier:@"AddPillSegue" sender:self];
+}
+- (IBAction)addBoxButtonPressed:(id)sender
+{
+#pragma --mark Box button addition
 }
 
 -(IBAction)confirmPill:(UIStoryboardSegue*)sender

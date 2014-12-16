@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (strong, nonatomic) MTBBarcodeScanner* scanner;
 @property (strong, nonatomic) NSMutableArray* uniqueCodes;
+@property (weak, nonatomic) IBOutlet UIButton *comfirmButton;
+@property (weak, nonatomic) IBOutlet UILabel *barcodeTextLabel;
 
 
 @end
@@ -33,6 +35,7 @@
     self.typeLabel.text = @"Medication";
     self.nameTextField.enabled = YES;
     self.dosageTextField.enabled = YES;
+    //self.comfirmButton.enabled = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -40,10 +43,8 @@
     
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    NSLog(@"typed %@", textField.text);
-}
+
+
 - (IBAction)scanBarcodeButtonPressed:(id)sender
 {
     [self scanBarcode];
@@ -57,6 +58,7 @@
             [self.scanner startScanningWithResultBlock:^(NSArray *codes) {
                 AVMetadataMachineReadableCodeObject *code = [codes firstObject];
                 NSLog(@"Found code: %@", code.stringValue);
+                self.barcodeTextLabel.text = code.stringValue;
                 
                 [self.scanner stopScanning];
             }];
@@ -81,6 +83,15 @@
 {
     return YES;
 }
+
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"typed %@", textField.text);
+}
+
+
+
 - (IBAction)switchButtonPressed:(UISwitch*)sender
 {
     if (sender.on) {
